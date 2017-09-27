@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>ToDo List</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+</head>
+<body ng-app="todo"  ng-controller="todoList as todo" ng-strict-di>
+    <nav class="top-nav">
+        <a class="top-nav__item" href="" ng-click="todo.showCompleted = !todo.showCompleted">
+            <span ng-hide="todo.showCompleted">show completed {{todo.list.length - filtered.length}} tasks</span>
+            <span ng-show="todo.showCompleted">hide completed tasks</span>
+        </a>
+    </nav>
+    <ul class="todo-list">
+        <li ng-repeat="item in todo.list | filterComplete:todo.showCompleted as filtered" class="todo-item">
+            <label class="todo-label">
+                <input class="todo-label__status" ng-change="todo.storeTodo()" ng-model="item.complete" type="checkbox">
+                <span ng-hide="item.editable">
+                    <span class="todo-label__title">{{item.name}}</span>
+                    <span class="todo-label__actions">
+                        <a class="todo-action todo-action__edit" ng-click="item.editable = !item.editable" href="">[edit]</a>
+                        <a class="todo-action todo-action__remove" ng-click="todo.remove($index)" href="">[remove]</a>
+                    </span>
+                </span>
+            </label>
+            <input class="todo-item__input" ng-show="item.editable" type="text" ng-blur="item.editable = false; todo.storeTodo();" ng-model="item.name" value="">
+        </li>
+        <li ng-hide="filtered.length" class="todo-list__empty">no tasks</li>
+    </ul>
+    <form class="todo-new" ng-submit="todo.add()" method="get">
+        <input class="todo-new__input" placeholder="new task..." type="text" class="new-todo" ng-model="todo.newTodo" value="">
+        <button type="submit" name="button">add</button>
+    </form>
+</body>

@@ -1,0 +1,80 @@
+.todo-list {
+  margin: 0;
+  padding: 1%;
+  font-size: 16px;
+  font-family: 'Arial', sans-serif;
+  background-color: #f1f1f1;
+  border: 1px solid #e8e6e6;
+}
+.todo-list__empty {
+    font-size: 80px;
+    text-align: center;
+    list-style-type: none;
+    color: #d0cdcd;
+}
+.todo-item__input {
+    font-size: 16px;
+    font-family: 'Arial', sans-serif;
+}
+.todo-item {
+  list-style-type: none;
+  margin: 0;
+  padding: 1%;
+}
+.todo-label__title {
+    margin: 0 0 0 2%;
+}
+.todo-label__actions {
+    display: inline-block;
+    margin: 0 0 0 1%;
+}
+.todo-label__status {
+
+    padding: 0;
+    margin: 0;
+    display: inline-block;
+    vertical-align: middle;
+}
+.todo-label__status + span {
+    display: inline-block;
+    vertical-align: middle;
+    white-space: nowrap;
+}
+.todo-label__status:checked + span {
+    text-decoration: line-through;
+    color: #c0c0c0;
+}
+.todo-label__status:checked + span > .todo-label__actions {
+    display: none;
+}
+.todo-new {
+    margin: 1%;
+    padding: 0;
+}
+.todo-new__input {
+    padding: 0 1%;
+    margin: 0 0 0 1%;
+    font-size: 16px;
+    font-family: 'Arial', sans-serif;
+}
+.top-nav {
+    margin: 1%;
+}
+.top-nav__item {
+    color: green;
+}
+.todo-action {
+    font-size: 12px;
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0 5% 0 0;
+}
+.todo-action:hover {
+    text-decoration: none;
+}
+.todo-action__edit {
+    color: green;
+}
+.todo-action__remove {
+    color: red;
+}
